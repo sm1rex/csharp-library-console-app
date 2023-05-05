@@ -59,6 +59,8 @@ class Program {
     static void Main(string[] args) {
         Library library = new Library();
 
+            Console.WriteLine();
+            Console.WriteLine();
         while (true) {
             Console.WriteLine("Select an option:");
             Console.WriteLine("1. Add book");
@@ -72,6 +74,8 @@ class Program {
             Console.WriteLine("9. Count books");
             Console.WriteLine("0. Exit");
 
+            Console.WriteLine();
+            Console.WriteLine();
             string input = Console.ReadLine();
 
 Max, [31.03.2023 15:02]
@@ -85,17 +89,21 @@ switch (input) {
                     int year = int.Parse(Console.ReadLine());
                     library.AddBook(new Book { title = title, author = author, year = year });
                     Console.WriteLine("Book added.");
+                    Console.WriteLine();
                     break;
                 case "2":
                     Console.Write("Title: ");
                     string removeTitle = Console.ReadLine();
                     library.RemoveBook(removeTitle);
                     Console.WriteLine("Book removed.");
+                    Console.WriteLine();
                     break;
                 case "3":
                     library.ListBooks();
+                    Console.WriteLine();
                     break;
                 case "4":
+                    Console.WriteLine();
                     Console.Write("Author: ");
                     string findAuthor = Console.ReadLine();
                     List<Book> foundByAuthor = library.FindByAuthor(findAuthor);
@@ -104,8 +112,10 @@ switch (input) {
                     foreach (Book book in foundByAuthor) {
                         Console.WriteLine("{0,-30} {1,-20} {2,-5}", book.title, book.author, book.year);
                     }
+                    Console.WriteLine();
                     break;
                 case "5":
+                    Console.WriteLine();
                     Console.Write("Title: ");
                     string findTitle = Console.ReadLine();
                     List<Book> foundByTitle = library.FindByTitle(findTitle);
@@ -114,21 +124,29 @@ switch (input) {
                     foreach (Book book in foundByTitle) {
                         Console.WriteLine("{0,-30} {1,-20} {2,-5}", book.title, book.author, book.year);
                     }
+                    Console.WriteLine();
                     break;
                 case "6":
                     library.SortByTitle();
                     Console.WriteLine("Sorted by title.");
+                    Console.WriteLine();
+                    library.ListBooks();
                     break;
                 case "7":
                     library.SortByAuthor();
                     Console.WriteLine("Sorted by author.");
+                    Console.WriteLine();
+                    library.ListBooks();
                     break;
                 case "8":
                     library.SortByYear();
                     Console.WriteLine("Sorted by year.");
+                    Console.WriteLine();
+                    library.ListBooks();
                     break;
                 case "9":
                     Console.WriteLine("There are {0} books in the library.", library.CountBooks());
+                    Console.WriteLine();
                     break;
                 case "0":
                     Console.WriteLine("Goodbye!");
